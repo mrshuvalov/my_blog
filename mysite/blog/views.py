@@ -2,7 +2,8 @@ from django.shortcuts import render, get_object_or_404
 from .models import Post
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic import ListView
-from .forms import CommentForm
+from .forms import CommentForm, EmailPostForm
+from django.core.mail import send_mail
 
 def post_list(request):
     object_list = Post.published.all()
